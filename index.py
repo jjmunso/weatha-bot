@@ -10,7 +10,7 @@ trainingData = np.array([[0,0,1],
             [0,1,1],
             [1,0,1],
             [1,1,1]])
-                
+
 trainingAnswers = np.array([[0],
 			[1],
 			[1],
@@ -19,8 +19,8 @@ trainingAnswers = np.array([[0],
 np.random.seed(1)
 
 # randomly initialize our weights with mean 0
-syn0 = 2*np.random.random((3,4)) - 1
-syn1 = 2*np.random.random((4,1)) - 1
+syn0 = 2*np.random.random((3,4)) - 1 #3 coloums, 4 rows?
+syn1 = 2*np.random.random((4,1)) - 1 #4 rows 1 colum?
 
 for j in range(60000):
 
@@ -31,17 +31,17 @@ for j in range(60000):
 
     # how much did we miss the target value?
     l2_error = trainingAnswers - l2
-    
+
     if (j% 10000) == 0:
         print ("Error:" + str(np.mean(np.abs(l2_error))))
-        
+
     # in what direction is the target value?
     # were we really sure? if so, don't change too much.
     l2_delta = l2_error*nonlin(l2,deriv=True)
 
     # how much did each l1 value contribute to the l2 error (according to the weights)?
     l1_error = l2_delta.dot(syn1.T)
-    
+
     # in what direction is the target l1?
     # were we really sure? if so, don't change too much.
     l1_delta = l1_error * nonlin(l1,deriv=True)
