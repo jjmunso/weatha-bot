@@ -6,11 +6,13 @@ def nonlin(x,deriv=False):
 
 	return 1/(1+np.exp(-x))
 
+#Define the training data using coloums number of variables and rows number of (sample) days
 trainingData = np.array([[0,0,1],
             [0,1,1],
             [1,0,1],
             [1,1,1]])
 
+#Define the training answers using coloums usability for each facility and rows for number of (sample) days
 trainingAnswers = np.array([[0],
 			[1],
 			[1],
