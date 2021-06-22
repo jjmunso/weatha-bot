@@ -14,10 +14,10 @@ arrRainfall = []
 arrTempMax = []
 arrTempMin = []
 
-with open('weatha.csv') as csvDataFile:
+with open('data/weatha.csv') as csvDataFile:
 	csvReader = csv.reader(csvDataFile)
 	for column in csvReader:
-		arrDates.append(column[0])
+		arrDatesWetha.append(column[0])
 		arrRainfall.append(column[1])
 		arrTempMax.append(column[2])
 		arrTempMin.append(column[3])
@@ -28,14 +28,24 @@ arrBasketball = []
 arrAgora = []
 arrAssembly = []
 
-with open('usability.csv') as csvDataFile:
+with open('data/usability.csv') as csvDataFile:
 	csvReader = csv.reader(csvDataFile)
 	for column in csvReader:
-		arrDates.append(column[0])
+		arrDatesUsability.append(column[0])
 		arrBasketball.append(column[1])
 		arrAgora.append(column[2])
 		arrAssembly.append(column[3])
 
+
+print(arrDatesWetha)
+print(arrDatesUsability)
+
+print(arrRainfall)
+print(arrTempMax)
+print(arrTempMin)
+print(arrBasketball)
+print(arrAgora)
+print(arrAssembly)
 
 
 
@@ -48,16 +58,20 @@ def nonlin(x,deriv=False):
 	return 1/(1+np.exp(-x))
 
 #Define the training data using coloums number of variables and rows number of (sample) days
-trainingData = np.array([[0,0,1],
-            [0,1,1],
-            [1,0,1],
-            [1,1,1]])
+day1 = [int(arrRainfall[1]),int(arrTempMax[1]),int(arrTempMin[1])]
+day2 = [int(arrRainfall[2]),int(arrTempMax[2]),int(arrTempMin[2])]
+day3 = [int(arrRainfall[3]),int(arrTempMax[3]),int(arrTempMin[3])]
+day4 = [int(arrRainfall[4]),int(arrTempMax[4]),int(arrTempMin[4])]
+trainingData = np.array([day1,day2,day3,day4])
 
 #Define the training answers using coloums usability for each facility and rows for number of (sample) days
-trainingAnswers = np.array([[0],
-			[1],
-			[1],
-			[0]])
+
+#CURRENTLY USING Basketball
+bask1 = int(arrBasketball[1])
+bask2 = int(arrBasketball[2])
+bask3 = int(arrBasketball[3])
+bask4 = int(arrBasketball[4])
+trainingAnswers = np.array([[bask1],[bask2],[bask3], [bask4]])
 
 np.random.seed(1)
 
@@ -92,7 +106,7 @@ for j in range(60000):
     syn1 += l1.T.dot(l2_delta)
     syn0 += l0.T.dot(l1_delta)
 
-l0 = [1,0,1]
+l0 = [int(arrRainfall[5]),int(arrTempMax[5]),int(arrTempMin[5])]
 l1 = nonlin(np.dot(l0,syn0))
 l2 = nonlin(np.dot(l1,syn1))
 print (l2)
