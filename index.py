@@ -1,4 +1,45 @@
+'''
+Neural Network for WeathaBot
+Software 3-4
+By Jeremie Munso
+12/06/2021 @ St Leonards College
+'''
+
 import numpy as np
+import csv
+
+arrDatesWetha = []
+
+arrRainfall = []
+arrTempMax = []
+arrTempMin = []
+
+with open('weatha.csv') as csvDataFile:
+	csvReader = csv.reader(csvDataFile)
+	for column in csvReader:
+		arrDates.append(column[0])
+		arrRainfall.append(column[1])
+		arrTempMax.append(column[2])
+		arrTempMin.append(column[3])
+
+arrDatesUsability = []
+
+arrBasketball = []
+arrAgora = []
+arrAssembly = []
+
+with open('usability.csv') as csvDataFile:
+	csvReader = csv.reader(csvDataFile)
+	for column in csvReader:
+		arrDates.append(column[0])
+		arrBasketball.append(column[1])
+		arrAgora.append(column[2])
+		arrAssembly.append(column[3])
+
+
+
+
+
 
 def nonlin(x,deriv=False):
 	if(deriv==True):
@@ -55,3 +96,7 @@ l0 = [1,0,1]
 l1 = nonlin(np.dot(l0,syn0))
 l2 = nonlin(np.dot(l1,syn1))
 print (l2)
+
+saveFile = open("latestOutput.txt", 'w+') #w+ for write, and a+ for append
+saveFile.write(str(l2))
+saveFile.close()
