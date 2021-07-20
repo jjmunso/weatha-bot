@@ -1,3 +1,11 @@
+'''
+Neural Network GUI for WeathaBot
+Software 3-4
+By Jeremie Munso
+23/06/2021 @ St Leonards College
+'''
+
+
 from tkinter import *
 
 from tkinter import scrolledtext

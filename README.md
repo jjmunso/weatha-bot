@@ -15,4 +15,4 @@ The project is built for python3 and requires the following libraries:
 - tkinter
 
 
-``pip install numpy tkinter``
+``pip install numpy tkinter pyowm``

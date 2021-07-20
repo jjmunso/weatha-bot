@@ -14,13 +14,13 @@ arrRainfall = []
 arrTempMax = []
 arrTempMin = []
 
-with open('data/weatha.csv') as csvDataFile:
+with open('data/weatha.csv') as csvDataFile:  #Open and read the main csv with past weather data
 	csvReader = csv.reader(csvDataFile)
 	for column in csvReader:
-		arrDatesWetha.append(column[0])
-		arrRainfall.append(column[1])
-		arrTempMax.append(column[2])
-		arrTempMin.append(column[3])
+		arrDatesWetha.append(column[0]) #Put the dates in this array from column 0
+		arrRainfall.append(column[1]) #Put the rainfal in this array from column 1
+		arrTempMax.append(column[2]) #Put the tempMax in this array from column 2
+		arrTempMin.append(column[3]) #Put the tempMin in this array from column 3
 
 arrDatesUsability = []
 
