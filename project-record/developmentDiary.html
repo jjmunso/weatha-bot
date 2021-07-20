@@ -51,7 +51,9 @@
    <td>
        <ul>
            <li>Implementation of CSV & Output File</li>
-
+           <li>Empty CSV files (weatha.csv and usability.csv) added for future test data</li>
+           <li>Basic text output file that saves the prediction to latestOutput.txt</li>
+           <li>CSV read-and-append-to-array function (from Mr Anderson examples in T1)</li>
 
        </ul>
 
@@ -91,11 +93,15 @@
 </tr>
 <tr>
    <td>
-       21/06/21
+       22/06/21
     </td>
    <td>
        <ul>
            <li>Implementation of Basic GUI with tkinter</li>
+           <li>Merge pull request for GUI testing and Main</li>
+           <li>Zips added to .gitignore to prevent unnessesary storage size</li>
+           <li>Test data for past wetha and usability, added to files</li>
+           <li>Updated gantt added to filess (development check.gan)</li>
        </ul>
 
     <td>
@@ -103,7 +109,73 @@
 
     </td>
    </td>
-   <td><img  src="demo-gifs/tkinterGUI.py RUN 2021-06-23 10-26.gif" alt="tkinter GUI example for the 23/06/21"></td>
+   <td><img  src="demo-gifs/tkinterGUI.py RUN 2021-06-23 10-26.gif" alt="tkinter GUI example for the 22/06/21"></td>
+</tr>
+<tr>
+   <td>
+       23/06/21
+    </td>
+   <td>
+       <ul>
+           <li>Implementation of Project Record and Development Diary</li>
+           <li>Addition of Background Images</li>
+           <li>Addition of index.html, developmentDiary.html, ganttChanges.html & stylesheet.css</li>
+           <li>2x Explanatory Gifs</li>
+       </ul>
+
+    <td>
+        Built a simple webpage, hosted with Github Pages, to record project progress and back it up with all other files. Allows the implementation of animated gifs to better aid record.
+    </td>
+   </td>
+   <td><img  src="" alt=""></td>
+</tr>
+<tr>
+   <td>
+       20/07/21
+    </td>
+   <td>
+       <ul>
+           <li>Development of a Weather Forecast Collection script</li>
+       </ul>
+
+    <td>
+        Using Open Weather Map API, and python to get current weather data. Hoping to turn this into a method for collecting an up to date forecast for predictions. Using this article as a guide: https://towardsdatascience.com/weather-forecasting-with-machine-learning-using-python-55e90c346647?gi=3211813999a9
+    </td>
+   </td>
+   <td>
+
+           Current error getting rainfall data as the program doesn't recognise the tag 'rain'. Here is the relevant documentation for future reference: https://openweathermap.org/current#current_JSON
+
+       <img  src="demo-gifs/rainError.gif" alt="">
+   </td>
+</tr>
+<tr>
+   <td>
+       21/07/21
+    </td>
+   <td>
+       <ul>
+           <li>Various Minor Changes</li>
+           <li>Minor Fixes to project record</li>
+           <li>Simplification of forecast collection script</li>
+           <li>Development Diary Additions</li>
+           <li>Fixed API key leak</li>
+       </ul>
+
+    <td>
+        Possible resolution to issue 3: https://github.com/jjmunso/weatha-bot/issues/3
+    </td>
+   </td>
+   <td>
+
+       <img  src="demo-gifs/title_misplacement.png" alt="">
+       <img  src="demo-gifs/correct_placement.png" alt="">
+
+       Security leak of API fixed by removal of API key in future versions
+
+       <img src="demo-gifs/API_leak.png">
+
+   </td>
 </tr>
 </table>
 

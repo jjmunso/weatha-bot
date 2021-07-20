@@ -79,7 +79,7 @@ np.random.seed(1)
 syn0 = 2*np.random.random((3,4)) - 1 #3 coloums, 4 rows?
 syn1 = 2*np.random.random((4,1)) - 1 #4 rows 1 colum?
 
-for j in range(60000):
+for j in range(10000):
 
 	# Feed forward through layers 0, 1, and 2
     l0 = trainingData
