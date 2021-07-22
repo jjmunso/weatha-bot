@@ -13,6 +13,12 @@ Then, when given a forecast for weather, it could determine the facility usabili
 The project is built for python3 and requires the following libraries:
 - Numpy
 - tkinter
+- Python Open Weather Map
 
 
 ``pip install numpy tkinter pyowm``
+
+
+Todo:
+- Simplify array collation (in training data) to an iterative loop
+- 
