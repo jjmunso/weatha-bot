@@ -1,5 +1,5 @@
-#Weatha Bot
-##For Software 34
+# Weatha Bot
+## For Software 34
 
 This project is designed to take 2 inputs:
 - Past Weather Data
