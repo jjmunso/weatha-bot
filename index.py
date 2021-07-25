@@ -59,12 +59,18 @@ def nonlin(x,deriv=False):
 	return 1/(1+np.exp(-x))
 
 #Define the training data using coloums number of variables and rows number of (sample) days
-day1 = [int(arrRainfall[1]),int(arrTempMax[1]),int(arrTempMin[1])]
-day2 = [int(arrRainfall[2]),int(arrTempMax[2]),int(arrTempMin[2])]
-day3 = [int(arrRainfall[3]),int(arrTempMax[3]),int(arrTempMin[3])]
-day4 = [int(arrRainfall[4]),int(arrTempMax[4]),int(arrTempMin[4])]
-trainingData = np.array([day1,day2,day3,day4])
+day1 = [round(float(arrRainfall[1])),round(float(arrTempMax[1])),round(float(arrTempMin[1]))]
+day2 = [round(float(arrRainfall[2])),round(float(arrTempMax[2])),round(float(arrTempMin[2]))]
+day3 = [round(float(arrRainfall[3])),round(float(arrTempMax[3])),round(float(arrTempMin[3]))]
+day4 = [round(float(arrRainfall[4])),round(float(arrTempMax[4])),round(float(arrTempMin[4]))]
 
+
+i = 1
+for i in len(arrRainfall):
+	day(i) = round(float(arrRainfall[i])),round(float(arrTempMax[i])),round(float(arrTempMin[i]))
+
+trainingData = np.array([day1,day2,day3,day4])
+#Needs to be simplified to an iteration
 #Define the training answers using coloums usability for each facility and rows for number of (sample) days
 
 #CURRENTLY USING Basketball to test the program
@@ -104,7 +110,7 @@ for j in range(10000):
     syn1 += l1.T.dot(l2_delta)
     syn0 += l0.T.dot(l1_delta)
 
-l0 = [int(arrRainfall[5]),int(arrTempMax[5]),int(arrTempMin[5])] #prediction test
+l0 = [round(float(arrRainfall[5])),round(float(arrTempMax[5])),round(float(arrTempMin[5]))] #prediction test
 l1 = nonlin(np.dot(l0,syn0))
 l2 = nonlin(np.dot(l1,syn1))
 print (l2)
