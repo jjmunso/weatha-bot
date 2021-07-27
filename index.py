@@ -39,18 +39,6 @@ with open('data/usability.csv') as csvDataFile:
 		arrAgora.append(column[2])
 		arrAssembly.append(column[3])
 
-'''
-print(arrDatesWetha)
-print(arrDatesUsability)
-
-print(arrRainfall)
-print(arrTempMax)
-print(arrTempMin)
-print(arrBasketball)
-print(arrAgora)
-print(arrAssembly)
-'''
-
 #
 def nonlin(x,deriv=False):
 	if(deriv==True):
@@ -64,12 +52,19 @@ day2 = [round(float(arrRainfall[2])),round(float(arrTempMax[2])),round(float(arr
 day3 = [round(float(arrRainfall[3])),round(float(arrTempMax[3])),round(float(arrTempMin[3]))]
 day4 = [round(float(arrRainfall[4])),round(float(arrTempMax[4])),round(float(arrTempMin[4]))]
 
-
-i = 1
-for i in len(arrRainfall):
-	day(i) = round(float(arrRainfall[i])),round(float(arrTempMax[i])),round(float(arrTempMin[i]))
-
 trainingData = np.array([day1,day2,day3,day4])
+
+'''
+arrInside = []
+i = 1
+while i < len(arrRainfall):
+	day = round(float(arrRainfall[i])),round(float(arrTempMax[i])),round(float(arrTempMin[i]))
+	arrInside.append(day)
+
+trainingData = np.array(arrInside)
+'''
+
+
 #Needs to be simplified to an iteration
 #Define the training answers using coloums usability for each facility and rows for number of (sample) days
 
