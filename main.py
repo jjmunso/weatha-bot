@@ -121,10 +121,11 @@ arrAssembly.pop(0)
 
 arrInside = []
 i = 1
-while i < len(arrRainfall):
-	day = round(float(arrRainfall[i])),round(float(arrTempMax[i])),round(float(arrTempMin[i]))
-	arrInside.append(day)
-	i=i+1
+if len(arrRainfall) == len(arrTempMax) and len(arrTempMax) == len(arrTempMin):
+	while i < len(arrRainfall):
+		day = round(float(arrRainfall[i])),round(float(arrTempMax[i])),round(float(arrTempMin[i]))
+		arrInside.append(day)
+		i=i+1
 
 trainingData = np.array(arrInside)
 

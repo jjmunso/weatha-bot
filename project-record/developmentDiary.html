@@ -25,8 +25,7 @@
  <tr>
    <th>Date</th>
    <th>Summary of Tasks Completed</th>
-   <th>Changes and Deviations from plan</th>
-   <th>Errors and Testing Outcomes </th>
+   <th>Changes and Testing</th>
  </tr>
  <tr>
    <td>19/06/21</td>
@@ -36,12 +35,11 @@
            <li>Basic python neural network</li>
        </ul>
    </td>
-   <td> <a href="https://iamtrask.github.io/2015/07/12/basic-python-network/">Python neural network example</a></td>
-   <td>
+   <td> <a href="https://iamtrask.github.io/2015/07/12/basic-python-network/">Python neural network example</a>
        <ul>
-           <li>Basic output test with 3 inputs 1 answer</li>
-           <li>Returns good data with decreasing error over training iterations</li>
-       </ul>
+       <li>Basic output test with 3 inputs 1 answer</li>
+       <li>Returns good data with decreasing error over training iterations</li>
+   </ul>
 </td>
 </tr>
 <tr>
@@ -59,6 +57,7 @@
 
 
     <td>
+        <h4>Conventions for validation</h4>
         CSV files need to be formatted in the following way to make them compatible with the ‘column reader’ code snippet from Unit 3 O1:
         <table style="width:100%">
             <tr>
@@ -86,10 +85,12 @@
                   <td>XXX</td>
                </tr>
          </table>
+         Having consistent conventions reduces the room for error and improves the chance the data entering the system is valid
+         <h4>Sprint</h4>
+         Testing in the terminal outputs 0.5 consistently using 4 days of sample data on 2nd day of development. Following the agile development model means getting the core mechanics of the program working early on even if it is a makeshift and unpolished way.
+         <img  src="demo-gifs/index.py RUN 2021-06-23 09-19.gif" alt="Terminal Execution of index.py on 021-06-23 09-19 gif">
     </td>
    </td>
-   <td>Testing in the terminal outputs 0.5 consistently using 4 days of sample data
-   <img  src="demo-gifs/index.py RUN 2021-06-23 09-19.gif" alt="Terminal Execution of index.py on 021-06-23 09-19 gif"></td>
 </tr>
 <tr>
    <td>
@@ -105,11 +106,11 @@
        </ul>
 
     <td>
+        <h4>GUI Genesis</h4>
         Using tkinter GRID system is useful for table but difficult to manage other gui elements that are loosely correlated to that grid positioning
-
+        <img  src="demo-gifs/tkinterGUI.py RUN 2021-06-23 10-26.gif" alt="tkinter GUI example for the 22/06/21">
     </td>
    </td>
-   <td><img  src="demo-gifs/tkinterGUI.py RUN 2021-06-23 10-26.gif" alt="tkinter GUI example for the 22/06/21"></td>
 </tr>
 <tr>
    <td>
@@ -120,14 +121,15 @@
            <li>Implementation of Project Record and Development Diary</li>
            <li>Addition of Background Images</li>
            <li>Addition of index.html, developmentDiary.html, ganttChanges.html & stylesheet.css</li>
-           <li>2x Explanatory Gifs</li>
+           <li>Explanatory Gifs</li>
        </ul>
 
     <td>
+        <h4>Webpage creation</h4>
         Built a simple webpage, hosted with Github Pages, to record project progress and back it up with all other files. Allows the implementation of animated gifs to better aid record.
+        <img  src="" alt="">
     </td>
    </td>
-   <td><img  src="" alt=""></td>
 </tr>
 <tr>
    <td>
@@ -139,14 +141,12 @@
        </ul>
 
     <td>
+        <h4>Development of Forecast Collection Script</h4>
         Using Open Weather Map API, and python to get current weather data. Hoping to turn this into a method for collecting an up to date forecast for predictions. Using this article as a guide: <a href="https://towardsdatascience.com/weather-forecasting-with-machine-learning-using-python-55e90c346647?gi=3211813999a9">Weather Forecasting with Machine Learning</a>
+        <br>
+        Current error getting rainfall data as the program doesn't recognise the tag 'rain'. Here is the relevant documentation for future reference: <a href="https://openweathermap.org/current#current_JSON">Relevant Open Weather Map API Documentation</a>
+        <img  src="demo-gifs/rainError.gif" alt="">
     </td>
-   </td>
-   <td>
-
-           Current error getting rainfall data as the program doesn't recognise the tag 'rain'. Here is the relevant documentation for future reference: <a href="https://openweathermap.org/current#current_JSON">Relevant Open Weather Map API Documentation</a>
-
-       <img  src="demo-gifs/rainError.gif" alt="">
    </td>
 </tr>
 <tr>
@@ -163,18 +163,18 @@
        </ul>
 
     <td>
-        Possible resolution to issue 3: <a href="https://github.com/jjmunso/weatha-bot/issues/3"> Link to Github Issue</a>
+        <h4>Issue 3, Mismatch heading positioning, resolved</h4>
+        Resolution to issue 3: <a href="https://github.com/jjmunso/weatha-bot/issues/3"> Link to Github Issue</a>
+        <br>
+        <h5>Misplacement</h5>
+        <img  src="demo-gifs/title_misplacement.png" alt="">
+        <h5>Correct Placement</h5>
+        <img  src="demo-gifs/correct_placement.png" alt="">
+        <h4>API Leak</h4>
+        Security leak of API fixed by removal of API key in future versions
+
+        <img src="demo-gifs/API_leak.png">
     </td>
-   </td>
-   <td>
-
-       <img  src="demo-gifs/title_misplacement.png" alt="">
-       <img  src="demo-gifs/correct_placement.png" alt="">
-
-       Security leak of API fixed by removal of API key in future versions
-
-       <img src="demo-gifs/API_leak.png">
-
    </td>
 </tr>
 <tr>
@@ -191,9 +191,6 @@
         [PLACEHOLDER]
     </td>
    </td>
-   <td>
-       [PLACEHOLDER]
-   </td>
 </tr>
 <tr>
    <td>
@@ -207,13 +204,12 @@
 
     <td>
         Tkinter UI was initating window.update() in a "while True:" iteration. This caused screen flashing and unnessesary consumption of computing power. Instead, initating 'window.update()' everytime the slider position was moved proved to be much more user and computer friendly.
+        <br>
+        <h5>window.update() in while True:</h5>
+        <img src="demo-gifs/UPDATE_ALWAYS.gif" alt="Gif demonstrating the screen updating constantly">
+        <h5>window.update() in print_value(), which is initated on slider move:</h5>
+        <img src="demo-gifs/UPDATE_SOMETIMES.gif" alt="Gif demonstrating the screen updating everytime the slider is moved">
     </td>
-   </td>
-   <td>
-       window.update() in while True:
-       <img src="demo-gifs/UPDATE_ALWAYS.gif" alt="Gif demonstrating the screen updating constantly">
-       window.update() in print_value(), which is initated on slider move:
-       <img src="demo-gifs/UPDATE_SOMETIMES.gif" alt="Gif demonstrating the screen updating everytime the slider is moved">
    </td>
 </tr>
 <tr>
@@ -223,21 +219,37 @@
    <td>
        <ul>
            <li>Main file redone</li>
-           <li>Weather collection fixed</li>
-           <li>3 Scripts Merged</li>
+           <li>Data Validation existence check</li>
+           <li>Weather collection discontinued</li>
+           <li>French computer increased data validation requirements</li>
+           <li>2 Scripts Merged (index.py + tkinterGUI.py = main.py)</li>
+           <li></li>
        </ul>
 
     <td>
+        <h4>Main File (index.py) redone</h4>
         Error appeared in the development of the main file. The error correction only occured once, meaning that _____. The program was completly re-written in hopes of solving the problem
-
-        The CSV containing data for the maximum temperature each day had empty rows. When attempting to convert these cells data (' ') from a string to a float, a type error was raised. The soultion was to ensure the table's data was valid through an existence check. <code>if column[0] != "":
+        <br>
+        <br>
+        <h4>Data Validation</h4>
+        The CSV containing data for the maximum temperature each day had empty rows. When attempting to convert these cells data (' ') from a string to a float, a type error was raised. The soultion was to ensure the table's data was valid through an existence check.
+        <br>
+        <p><code>if column[0] != "":<br>
 			arrDatesWetha.append(column[0]) #Put the dates in this array from column 0
-		else:
-			errorMessage("ERROR: Empty Cells in table data","USUABILITY")</code>
+		else:<br>
+			errorMessage("ERROR: Empty Cells in table data","USUABILITY")<br></code></p>
+        <h4>Automatic forecast collection discontinued</h4>
+        There were various problems with the weather collection API. Primarily, the API could not retrive rainfall data. This was a fatal limitation of the Open Weather API and alterntavie methods for collecting weather forecasts should be employed.
+        <h4>Error with french computer (Data Validation)</h4>
+        My computer is in french. When opening the CSV in LibreOffice, it converts the file into french conventions. This is important because France uses commas (',') instead of decimal points ('.'). This causes problems with the CSV file, increasing the number of columns in rows with float values (which is essetially every row). The implementaiton of the following code, to verify that all weather data is of equal length, minimizes the chances that a faulty file starts an instance of the progam the renders the predictions innaccurate:
+        <br>
+        <code><b>if len(arrRainfall) == len(arrTempMax) and len(arrTempMax) == len(arrTempMin):</b><br>
+        	while i < len(arrRainfall):<br>
+        		day = round(float(arrRainfall[i])),round(float(arrTempMax[i])),round(float(arrTempMin[i]))
+        		arrInside.append(day)<br>
+        		i=i+1<br>
+        trainingData = np.array(arrInside)</code>
     </td>
-   </td>
-   <td>
-       [PLACEHOLDER]
    </td>
 </tr>
 </table>

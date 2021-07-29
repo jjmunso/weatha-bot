@@ -1,3 +1,10 @@
+code {
+  font-family: Consolas,"courier new";
+  color: black;
+  background-color: #b5b5b5;
+  font-size: 75%;
+}
+
 body, html {
   height: 75%;
 }
