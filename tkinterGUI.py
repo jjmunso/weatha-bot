@@ -21,9 +21,30 @@ windowWidth = window.winfo_width()
 
 
 def print_value(val): #get the value of the slider
-    print (val)
+    j = 0
+    try:
+        print("IM TRYING")
+        while j < int(val):
+            one = Label(window,width=windowWidth+10,height=windowHeight,borderwidth=2,relief="solid",text=(j+1))
+            one.grid(column=j+2,row=2)
+            j = j + 1
+            window.update()
+        '''
+        while int(val) < j:
+            print("VALUE IS LOWER THAN J")
+            one = Label(window,width=windowWidth+10,height=windowHeight,borderwidth=2,relief="solid",text=(j+1))
+            one.grid(column=j+2,row=2)
+            j=j-1
+            window.update()
+        '''
+
+    except:
+        print("I FAILED")
+    print ("val: ",val)
+    print ("j: ",j)
     window.update()
     return val
+
 
 
 #------------ TOP TOOL BAR -------------
@@ -39,24 +60,13 @@ imgDeleter = PhotoImage(file = r"img/edit-delete.png")
 
 '''slider = Scale(window,from_=0, to=21, orient=HORIZONTAL, borderwidth=2,relief="solid")
 slider.grid(column = 0,row = 0, columnspan=1)'''
-slider = Scale(window, to=21, orient=HORIZONTAL, length=None,command=print_value) #NOTICE command is the method to get the value of the slider
-slider.grid(row=0,column=0,columnspan=8,padx=(10,7),sticky='NESW') #Have the slider span the top of the program
+slider = Scale(window, to=7, orient=HORIZONTAL, length=None,command=print_value) #NOTICE command is the method to get the value of the slider
+slider.grid(row=0,column=0,columnspan=3,padx=(10,7),sticky='NESW') #Have the slider span the top of the program
 
 #------------ Table Labels -----------------
 while True:
-    try:
-        TEST_VALUE=print_value()
-        print("THE TEST VALUE: ", TEST_VALUE)
-        days = Label(window,width=windowWidth+10,height=windowHeight,borderwidth=2,relief="solid",text= TEST_VALUE)
-        days.grid(column=2,row=1, columnspan=3)
-        j = 0
-        while j < TEST_VALUE:
-            print("IM TRYING")
-            one = Label(window,width=windowWidth+10,height=windowHeight,borderwidth=2,relief="solid",text=j)
-            one.grid(column=2,row=2)
-    except:
-        pass
-
+    days = Label(window,width=windowWidth+10,height=windowHeight,borderwidth=2,relief="solid",text= "Days")
+    days.grid(column=2,row=1, columnspan=2)
     #FACILITIES
     facility = Label(window,width=windowWidth+10,height=windowHeight,borderwidth=2,relief="solid",text= 'Faclities')
     facility.grid(column=0,row=2, rowspan=3)

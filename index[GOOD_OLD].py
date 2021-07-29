@@ -107,17 +107,16 @@ trainingData = np.array(arrInside)
 
 
 
-#Needs to be simplified to an iteration
 #Define the training answers using coloums usability for each facility and rows for number of (sample) days
 
 #CURRENTLY USING Basketball to test the program
 arrInside = []
 i = 1
 while i < len(arrBasketball):
-	ans = int(arrBasketball[i]),int(arrAgora[i]),int(arrAssembly[i])
-	arrInside.append(ans)
+	bask = int(arrBasketball[i])
+	arrInside.append(bask)
 	i=i+1
-trainingAnswers = np.array(arrInside)
+trainingAnswers = np.array([arrInside])
 '''
 trainingData = np.array(arrInside)
 bask1 = int(arrBasketball[0])
@@ -127,38 +126,40 @@ bask4 = int(arrBasketball[3])
 trainingAnswers = np.array([[bask1],[bask2],[bask3], [bask4]])
 '''
 
-
-X = np.array(trainingData)
-
-y = np.array(trainingAnswers)
-
 np.random.seed(1)
 
-
-syn0 = 2*np.random.random((3,(len(trainingData)))) - 1
-syn1 = 2*np.random.random(((len(trainingData)),3)) - 1
+# randomly initializes weights with average of 0
+syn0 = 2*np.random.random((3,(i-1))) - 1 #3 coloums, 4 rows?
+syn1 = 2*np.random.random(((i-1),1)) - 1 #4 rows 1 colum?
 
 for j in range(10000):
-    n0 = X
-    n1 = nonlin(np.dot(n0,syn0))
-    n2 = nonlin(np.dot(n1,syn1))
-    n2_error = y - n2
-    if (j% 100000) == 0:
-        print ("Error:" + str(np.mean(np.abs(n2_error))))
-    n2_delta = n2_error*nonlin(n2,deriv=True)
-    n1_error = n2_delta.dot(syn1.T)
-    n1_delta = n1_error * nonlin(n1,deriv=True)
-    syn1 += n1.T.dot(n2_delta)
-    syn0 += n0.T.dot(n1_delta)
+	# Layers
+   n0 = trainingData
+   n1 = nonlin(np.dot(n0,syn0))
+   n2 = nonlin(np.dot(n1,syn1))
 
-#l0 = [round(float(arrRainfall[i])),round(float(arrTempMax[i])),round(float(arrTempMin[i]))] #prediction test
-#n0 = [25,11,0] #DATA FOR 22nd RETURNS 1,1,0 WHICH AGREES WITH SPREADSHEET
-#n0 = [0,11,7] #DATA FOR 23rd RETURNS 1,1,0 WHICH DISAGREES WITH SPREADSHEET
-n0 = [7,12.8,6.7] # DATA FOR LAST TRAINING DAY
-n1 = nonlin(np.dot(n0,syn0))
-n2 = nonlin(np.dot(n1,syn1))
-print (n2)
+    # Correction by error margin
+   n2_error = trainingAnswers -n2
+
+    if (j% 10000) == 0:
+        print ("Error:" + str(np.mean(np.abs(l2_error))))
+
+    #weight and direct the correction
+   n2_delta =n2_error*nonlin(n2,deriv=True)
+
+
+   n1_error =n2_delta.dot(syn1.T)
+
+   n1_delta =n1_error * nonlin(n1,deriv=True)
+
+    syn1 +=n1.T.dot(n2_delta)
+    syn0 +=n0.T.dot(n1_delta)
+
+l0 = [round(float(arrRainfall[i])),round(float(arrTempMax[i])),round(float(arrTempMin[i]))] #prediction test
+l1 = nonlin(np.dot(l0,syn0))
+l2 = nonlin(np.dot(l1,syn1))
+print (l2)
 
 saveFile = open("latestOutput.txt", 'w+') #w+ for write, and a+ for append
-saveFile.write(str(n2))
+saveFile.write(str(l2))
 saveFile.close()
