@@ -15,7 +15,7 @@ The project is built for python3 and requires the following libraries:
 - tkinter
 - Python Open Weather Map
 
-
+n   
 ``pip install numpy tkinter pyowm``
 
 

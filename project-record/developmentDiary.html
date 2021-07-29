@@ -218,16 +218,22 @@
 </tr>
 <tr>
    <td>
-       28/07/21
+       29/07/21
     </td>
    <td>
        <ul>
            <li>Main file redone</li>
-           <li></li>
+           <li>Weather collection fixed</li>
+           <li>3 Scripts Merged</li>
        </ul>
 
     <td>
         Error appeared in the development of the main file. The error correction only occured once, meaning that _____. The program was completly re-written in hopes of solving the problem
+
+        The CSV containing data for the maximum temperature each day had empty rows. When attempting to convert these cells data (' ') from a string to a float, a type error was raised. The soultion was to ensure the table's data was valid through an existence check. <code>if column[0] != "":
+			arrDatesWetha.append(column[0]) #Put the dates in this array from column 0
+		else:
+			errorMessage("ERROR: Empty Cells in table data","USUABILITY")</code>
     </td>
    </td>
    <td>
