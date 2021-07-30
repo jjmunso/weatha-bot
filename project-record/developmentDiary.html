@@ -188,7 +188,6 @@
        </ul>
 
     <td>
-        [PLACEHOLDER]
     </td>
    </td>
 </tr>
@@ -223,12 +222,11 @@
            <li>Weather collection discontinued</li>
            <li>French computer increased data validation requirements</li>
            <li>2 Scripts Merged (index.py + tkinterGUI.py = main.py)</li>
-           <li></li>
        </ul>
 
     <td>
         <h4>Main File (index.py) redone</h4>
-        Error appeared in the development of the main file. The error correction only occured once, meaning that _____. The program was completly re-written in hopes of solving the problem
+        Error appeared in the development of the main file. The error correction only occured once, meaning that the training was not occurring correctly. The program was completly re-written in hopes of solving the problem (and it did).
         <br>
         <br>
         <h4>Data Validation</h4>
@@ -261,6 +259,41 @@
    </td>
 </tr>
 </table>
+
+
+<h2>Post-Version 1</h2>
+
+Here is what version1 of the program looks like:
+<img src="demo-gifs/FINAL_GIF.gif" alt="">
+
+<h3>Contingincies for further development</h3>
+Due to some constraints, changes to the inital design need to be made for further versions of the program.
+<h4>Features undergoing changes or that have not yet been implemented</h4>
+<ul>
+    <li>Spacing of design</li>
+    Due to the constraints of the tkinter library, it may be diffucult to continue with the open space of the selected design option. the tkinter grid system, by nature, packs everything very closely together. Thus, due to time constraits, it may be difficult to have an open space design.
+    <li>Functionality of program</li>
+    The program in its current state works. The usefulness of its predictions are however very questionable. The test data, when fed to the system, causes it to return 1's (usable) for each column and each day. This is not true, as the facilities were not actually usable on those days.
+    <li>Weather Forecast Collection</li>
+    Due to complciations with the Open Weather Map API and collecting rainfall data(see 20/07/21 Log), it is unknown wether or not the program will be able to automatically collect forecasted data. This is a critical technical constraint as the API may not be licensed to do so and it could be an issue for the effectiveness of the program.
+    <li>Colour determined by usability</li>
+    The idea of making the program more visually appealing through the use of colours to represent the data has not yet been implemented
+</ul>
+
+<h3>Consequential changes to assesment criteria</h3>
+The assesment criteria was written in a way that it would be a general guide for the development of a desirable software solution. Thus, it has been consulted and the program will be tested against it despite changes and constraints that may render it 'low-scoring'.
+<br>
+<img src="img/design_criteria.png" alt="" style="width: 50%">
+<br><br>
+Final Note: In early documentations (analysis phase) describing the outlook for this program, it was noted that two things would be of critical limitation:
+<ol>
+    <li>The amount of data that could be collected</li>
+    <li>The accuracy of this data, which is highly subjective</li>
+</ol>
+I would attribute these two things to the disfunction of the program in its current state and they should be kept in mind when considering further development options.
+
+
+
 
 
 
