@@ -249,6 +249,14 @@
         		arrInside.append(day)<br>
         		i=i+1<br>
         trainingData = np.array(arrInside)</code>
+        <h4>Tkinter can read slider value and create tables accordingly, whilst simultaneously filling it with data</h4>
+        Initally the slider value could not be read and the value could not be printed to tkinterGUI
+        <img src="demo-gifs/I_FAILED.gif" alt="">
+        This is because the value it was attemting to print was referenced from within a function and could not be called. By moving the table creation into the function responsible for executing everytime the slider moves (the same function that retrives the value of the slider), we were able to get the value printed to the gui.
+        <img src="demo-gifs/I_SUCEED.gif" alt="">
+        This number could then be used in an iteration (while loop) to determine the number of columns to generate.
+        <img src="demo-gifs/FINAL.gif" alt="">
+
     </td>
    </td>
 </tr>
