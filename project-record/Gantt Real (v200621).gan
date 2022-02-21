@@ -50,7 +50,6 @@
         <task id="453" name="DESIGN" color="#ff0033" meeting="false" start="2021-06-03" duration="13" complete="0" thirdDate="2021-06-03" thirdDate-constraint="0" expand="true">
             <task id="140" name="Folio" color="#8cb6ce" meeting="false" start="2021-06-03" duration="13" complete="0" thirdDate="2021-03-28" thirdDate-constraint="0" expand="true"/>
         </task>
-        <task id="142" name="Development Begin" color="#8cb6ce" meeting="true" start="2021-06-19" duration="0" complete="0" thirdDate="2021-04-18" thirdDate-constraint="0" expand="true"/>
         <task id="143" name="Development Ver 1" color="#33ff00" meeting="false" start="2021-06-19" duration="41" complete="0" thirdDate="2021-06-19" thirdDate-constraint="0" expand="true">
             <task id="454" name="Basic Neural Network" meeting="false" start="2021-06-19" duration="2" complete="0" expand="true"/>
             <task id="455" name="CSV implementation" color="#8cb6ce" meeting="false" start="2021-06-21" duration="1" complete="0" thirdDate="2021-07-01" thirdDate-constraint="0" expand="true"/>
@@ -60,6 +59,9 @@
             <task id="472" name="Forecast Collection Script" color="#8cb6ce" meeting="false" start="2021-07-20" duration="10" complete="0" thirdDate="2021-07-20" thirdDate-constraint="0" expand="true"/>
         </task>
         <task id="202" name="Holidays" color="#000000" meeting="false" start="2021-06-25" duration="17" complete="0" thirdDate="2021-05-16" thirdDate-constraint="0" expand="true"/>
+        <task id="473" name="Testing and Usability Testing" color="#8cb6ce" meeting="false" start="2021-08-03" duration="11" complete="0" thirdDate="2021-03-01" thirdDate-constraint="0" expand="true"/>
+        <task id="475" name="Evaluation of Software Solution" color="#8cb6ce" meeting="false" start="2021-08-17" duration="3" complete="0" thirdDate="2021-08-17" thirdDate-constraint="0" expand="true"/>
+        <task id="476" name="Evaluation of Project Plan" meeting="false" start="2021-08-25" duration="2" complete="0" expand="true"/>
     </tasks>
     <resources/>
     <allocations/>

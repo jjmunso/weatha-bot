@@ -28,28 +28,29 @@ def nonlin(x,deriv=False): #Best described here https://fr.wikipedia.org/wiki/Si
 	return 1/(1+np.exp(-x)) #Produces weightings more extreme for values closer to centre of sigmoid (steeper gradient) to correct less presise guesses and maintain more certain guesses
 
 def print_value(val): #get the value of the slider
-    j = 0
+    return val
+
+def funcUpdateScreen(val):
+	print (print_value)
+	j = 0
     try: #Attempt the following,
         while j < int(val): #Generate the table in reference to the slider
             one = Label(window,width=windowWidth+10,height=windowHeight,borderwidth=2,relief="solid",text=(j+1))
-            one.grid(column=j+2,row=2) #Create colums j + 2, avoid overlap for two existing columns
+            one.grid(column=j+2,row=3) #Create colums j + 2, avoid overlap for two existing columns
 
             #-------------OUTPUT-------------
             BASKETBALL = Label(window,width=windowWidth+10,height=windowHeight,borderwidth=2,relief="solid",text=round(week[j][0])) #Basketball output from main function, day J from the forecasted week, index 0 for basketball
-            BASKETBALL.grid(column=j+2,row=3)
+            BASKETBALL.grid(column=j+2,row=4)
             AGORA = Label(window,width=windowWidth+10,height=windowHeight,borderwidth=2,relief="solid",text=round(week[j][1])) #Agora output from main function, day J from the forecasted week, index 1 for Agora
-            AGORA.grid(column=j+2,row=4)
+            AGORA.grid(column=j+2,row=5)
             ASSEMBLY = Label(window,width=windowWidth+10,height=windowHeight,borderwidth=2,relief="solid",text=round(week[j][2])) #Assembly output from main function, day J from the forecasted week, index 2 for Assembly
-            ASSEMBLY.grid(column=j+2,row=5)
+            ASSEMBLY.grid(column=j+2,row=6)
             j = j + 1
-            window.update()
 
     except:
         print("I FAILED") #incase something goes wrong in creation of the table, output to the terminal that something has gone wrong
     print ("val: ",val)
     print ("j: ",j)
-    window.update()
-    return val
 
 
 # -------------------- WEATHER DATA ------------------------
@@ -179,7 +180,7 @@ forecastData = [[1.0,11.5,4.4], #Weather data for 22-28 of July as new data to t
                 [1.2,12.0,5.8],
                 [0,17.2,7.8],
                 [0,17.1,10.2],
-                [0,0,0]]
+                [0,16.3,11.6]]
 i = 0
 while i < 7:
     n0 = forecastData[i] #Take forecast data for current index
@@ -197,20 +198,22 @@ saveFile.close()
 
 
 slider = Scale(window, to=7, orient=HORIZONTAL, length=None,command=print_value) #NOTICE command is the method to get the value of the slider
-slider.grid(row=0,column=0,columnspan=3,padx=(10,7),sticky='NESW') #Have the slider span 3 colums at the the top of the program (row 0, column 0)
+slider.grid(row=1,column=0,columnspan=3,padx=(10,7),sticky='NESW') #Have the slider span 3 colums at the the top of the program (row 0, column 0)
 
 #------------ Table Labels -----------------
 while True:
-    days = Label(window,width=windowWidth+10,height=windowHeight,borderwidth=2,relief="solid",text= "Days")
-    days.grid(column=2,row=1, columnspan=2)
+	days = Label(window,width=windowWidth+10,height=windowHeight,borderwidth=2,relief="solid",text= "Days")
+	days.grid(column=2,row=2, columnspan=2)
     #FACILITIES
-    facility = Label(window,width=windowWidth+10,height=windowHeight,borderwidth=2,relief="solid",text= 'Faclities')
-    facility.grid(column=0,row=2, rowspan=3)
-    basketball = Label(window,width=windowWidth+10,height=windowHeight,borderwidth=2,relief="solid",text= 'Basketball')
-    basketball.grid(column=1,row=3)
-    agora = Label(window,width=windowWidth+10,height=windowHeight,borderwidth=2,relief="solid",text= 'Agora')
-    agora.grid(column=1,row=4)
-    assembly = Label(window,width=windowWidth+10,height=windowHeight,borderwidth=2,relief="solid",text= 'Assembly')
-    assembly.grid(column=1,row=5)
+	facility = Label(window,width=windowWidth+10,height=windowHeight,borderwidth=2,relief="solid",text= 'Faclities')
+	facility.grid(column=0,row=3, rowspan=3)
+	basketball = Label(window,width=windowWidth+10,height=windowHeight,borderwidth=2,relief="solid",text= 'Basketball')
+	basketball.grid(column=1,row=4)
+	agora = Label(window,width=windowWidth+10,height=windowHeight,borderwidth=2,relief="solid",text= 'Agora')
+	agora.grid(column=1,row=5)
+	assembly = Label(window,width=windowWidth+10,height=windowHeight,borderwidth=2,relief="solid",text= 'Assembly')
+	assembly.grid(column=1,row=6)
+	updateButton = Button(window,text= 'Update', command=funcUpdateScreen)
+	updateButton.grid(column=1,row=0, columnspan=1)
 # Instead of window.mainloop(), window.update() allows data to be live, this is neccessary for the slider function to have correlation to the table length
-    window.mainloop() #initalise the window
+	window.mainloop() #initalise the window
